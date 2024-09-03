@@ -16,7 +16,7 @@ export default function TodoItem({ id, title, completed, isPending }: TodoItemPr
 
   return (
     <div className='todo-item-container'>
-      <p className={clsx('todo-item-title', completed && 'todo-item-title-completed')}>{title} {isPending && <span className='todo-item-title-sending'>(Enregistement en cours...)</span>}
+      <p className={clsx('todo-item-title', completed && 'todo-item-title-completed')}>{title} {isPending && <span className='todo-item-title-sending'>(Recording in progress...)</span>}
       </p>
       {!isPending && <button className="todo-item-delete-btn" onClick={handleDeleteTodoClick}>X</button>}
     </div>
