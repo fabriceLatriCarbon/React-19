@@ -5,10 +5,11 @@ import TodoList from './TodoList';
 
 export default function TodoApp() {
 
-  const { addNewTodo } = useTodoContext();
+  const { addNewTodo, errorMessage, isPending } = useTodoContext();
 
   return (
     <>
+      {errorMessage && !isPending && <p className=''>{errorMessage}</p>}
       <form action={addNewTodo} className="todo-form-container">
         <div className="todo-form-main">
           <TodoInput />

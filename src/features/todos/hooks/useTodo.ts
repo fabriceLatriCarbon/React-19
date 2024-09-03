@@ -10,11 +10,14 @@ function addOptimisticTodo(todos: Todo[], newTodoTitle: string): Todo[] {
     return [...todos, createTodoFactory(lastOrder, newTodoTitle)];
 }
 
+
 export default function useTodo(todosProps: Todo[]) {
-  async function addNewTodoAction(_: string, formData: FormData): Promise<string> {
+  async function addNewTodoAction(_: string, formData: FormData): Promise<string> {    
     const title = formData.get('todo-input');
     
     if (!title || typeof title !== 'string') return 'todo-input must be a string';
+
+    if (title.localeCompare('toto', undefined, { sensitivity: 'base' }) === 0) return `New todo title cannot be "${title}"`;
     
     setOptimisticTodos(title);
 
