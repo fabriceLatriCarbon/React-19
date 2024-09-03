@@ -1,26 +1,24 @@
 'use client';
 
-import { useFormStatus } from 'react-dom';
 import { Todo } from '../models/todo'
 import clsx from 'clsx';
+import { useTodoContext } from '../hooks/useTodoContext';
 
-type TodoItemProps = Todo & { 
-  onDeleteTodo: (id: string) => Promise<void>
-}
+type TodoItemProps = Todo & { isPending: boolean };
 
-export default function TodoItem({ id, title, completed, onDeleteTodo }: TodoItemProps) {
+export default function TodoItem({ id, title, completed, isPending }: TodoItemProps) {
 
-  const { pending } = useFormStatus();
+  const { deleteTodo } = useTodoContext();
 
   const handleDeleteTodoClick = async () => {
-    await onDeleteTodo(id);
+    await deleteTodo(id);
   }
 
   return (
     <div className='todo-item-container'>
-      <p className={clsx('todo-item-title', completed && 'todo-item-title-completed')}>{title} {pending && <span className='todo-item-title-sending'>(Enregistement en cours...)</span>}
+      <p className={clsx('todo-item-title', completed && 'todo-item-title-completed')}>{title} {isPending && <span className='todo-item-title-sending'>(Enregistement en cours...)</span>}
       </p>
-      {!pending && <button className="todo-item-delete-btn" onClick={handleDeleteTodoClick}>X</button>}
+      {!isPending && <button className="todo-item-delete-btn" onClick={handleDeleteTodoClick}>X</button>}
     </div>
   )
 }

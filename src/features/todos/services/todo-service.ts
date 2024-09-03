@@ -1,3 +1,4 @@
+import { SERVER_TIMEOUT_DELAY } from "../../../core/http-client/constants";
 import { getHttpClient } from "../../../core/http-client";
 import { IHttpClient } from "../../../core/http-client/contracts";
 import { AddNewTodoRequest } from "../models/DTOs/requests/add-new-todo";
@@ -20,13 +21,17 @@ export async function getAllTodos(): Promise<Todo[]> {
 export async function addNewTodo(title: string): Promise<Todo> {
   'use server';
   
-  const httpClient: IHttpClient = getHttpClient();
-
-  if (!httpClient) throw new Error('httpClient must be provided');
-
-  const newTodo = (await httpClient.post<AddNewTodoResponse, AddNewTodoRequest>(ApiRoutes.ADD_NEW_TODO, { title })).todo;
-
-  return newTodo;
+  return new Promise((resolve) => {
+    setTimeout(async () => {
+      const httpClient: IHttpClient = getHttpClient();
+    
+      if (!httpClient) throw new Error('httpClient must be provided');
+    
+      const newTodo = (await httpClient.post<AddNewTodoResponse, AddNewTodoRequest>(ApiRoutes.ADD_NEW_TODO, { title })).todo;
+    
+      resolve(newTodo);
+    }, SERVER_TIMEOUT_DELAY);
+  })
 }
 
 export async function deleteTodo(id: string): Promise<string> {

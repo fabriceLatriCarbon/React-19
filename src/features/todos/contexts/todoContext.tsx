@@ -4,11 +4,7 @@ import useTodo from "../hooks/useTodo";
 
 
 
-type TodoContext = {
-  todos: Todo[];
-  addNewTodo: (formData: FormData) => Promise<void>;
-  deleteTodo: (id: string) => Promise<void>;
-}
+type TodoContext = ReturnType<typeof useTodo>
 
 type TodoProviderProps = React.PropsWithChildren & {
   todos: Todo[];

@@ -1,5 +1,5 @@
 
-import { useOptimistic, useState } from "react"
+import { useActionState, useOptimistic, useState } from "react"
 
 import { addNewTodo as addNewTodoServerAction, createTodoFactory, deleteTodo as deleteTodoServerAction, getTodoHighOrder } from "../services/todo-service"
 import { Todo } from "../models/todo"; 
@@ -11,21 +11,24 @@ function addOptimisticTodo(todos: Todo[], newTodoTitle: string): Todo[] {
 }
 
 export default function useTodo(todosProps: Todo[]) {
-  
-  const [todos, setTodos] = useState<Todo[]>(todosProps);
-  const [optimisticTodos, setOptimisticTodos] = useOptimistic(todos, addOptimisticTodo);
-  
-  async function addNewTodo(formData: FormData): Promise<void> {
+  async function addNewTodoAction(_: string, formData: FormData): Promise<string> {
     const title = formData.get('todo-input');
     
-    if (!title || typeof title !== 'string') throw new Error('todo-input must be a string');
+    if (!title || typeof title !== 'string') return 'todo-input must be a string';
     
     setOptimisticTodos(title);
 
     const newTodo = await addNewTodoServerAction(title);
 
     setTodos([...todos, newTodo]);
+
+    return '';
   }
+  
+  const [errorMessage, addNewTodo, pending] = useActionState(addNewTodoAction, '')
+  const [todos, setTodos] = useState<Todo[]>(todosProps);
+  const [optimisticTodos, setOptimisticTodos] = useOptimistic(todos, addOptimisticTodo);
+  
 
   async function deleteTodo(id: string): Promise<void> {
     const deletedId = await deleteTodoServerAction(id);
@@ -35,6 +38,8 @@ export default function useTodo(todosProps: Todo[]) {
 
   return {
     todos: optimisticTodos,
+    isPending: pending,
+    errorMessage,
     addNewTodo,
     deleteTodo
   }
