@@ -1,9 +1,9 @@
-import { useContext } from "react";
+import { use } from "react";
 import { TodosContext } from "../contexts/todoContext";
 
 
 export function useTodoContext() {
-  const todoContext = useContext(TodosContext);
+  const todoContext = use(TodosContext);
 
   if (!todoContext) {
     throw new Error('a todo context must be provided !');
