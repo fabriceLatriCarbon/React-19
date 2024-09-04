@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should render the app 1`] = `
+<div>
+  <form
+    action="javascript:throw new Error('A React form was unexpectedly submitted. If you called form.submit() manually, consider using form.requestSubmit() instead. If you\\'re trying to use event.stopPropagation() in a submit event handler, consider also calling event.preventDefault().')"
+    class="todo-form-container"
+  >
+    <div
+      class="todo-form-main"
+    >
+      <div
+        class="todo-form-input-container"
+      >
+        <label
+          class="todo-form-input-label"
+          for="todo-input"
+        >
+          Write something...
+        </label>
+        <input
+          class="todo-form-input-txt"
+          id="todo-input"
+          name="todo-input"
+        />
+      </div>
+      <button
+        class="todo-form-submit-btn"
+        id="todo-form-submit-btn"
+      >
+        Add
+      </button>
+    </div>
+  </form>
+  <div
+    class="todo-list-container"
+  >
+    <div
+      class="todo-item-container"
+    >
+      <p
+        class="todo-item-title"
+      >
+        First Test Todo
+         
+      </p>
+      <button
+        class="todo-item-delete-btn"
+      >
+        X
+      </button>
+    </div>
+    <div
+      class="todo-item-container"
+    >
+      <p
+        class="todo-item-title"
+      >
+        Second Test Todo
+         
+      </p>
+      <button
+        class="todo-item-delete-btn"
+      >
+        X
+      </button>
+    </div>
+  </div>
+</div>
+`;
