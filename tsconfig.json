@@ -5,6 +5,7 @@
     "lib": ["ESNext", "ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "esModuleInterop": true,
 
     /* Bundler mode */
     "moduleResolution": "Bundler",
@@ -23,7 +24,8 @@
 
     "paths": {
       "react": ["node_modules/@types/react"]
-    }
+    },
+    "types": ["@testing-library/jest-dom", "jest", "node"]
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
