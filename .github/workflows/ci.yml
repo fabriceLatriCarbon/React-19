@@ -1,0 +1,38 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Étape 1: Vérifier le code source
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Étape 2: Configurer Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.10.0'  # Spécifiez la version de Node.js que vous utilisez
+
+      # Étape 3: Installer les dépendances
+      - name: Install dependencies
+        run: npm install  # Utilisez `npm install` si vous ne souhaitez pas utiliser pnpm
+
+      # Étape 4: Construire le projet
+      - name: Build project
+        run: npm build
+
+      # Étape 5: Exécuter les tests
+      - name: Run tests
+        run: npm test
+
+      # Étape 6: (Facultatif) Nettoyer les artefacts
+      - name: Clean up
+        run: npm clean
