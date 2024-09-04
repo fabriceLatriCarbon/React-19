@@ -13,7 +13,7 @@
     "lint": "eslint 'src/**/*.{js,ts,jsx,tsx}'",
     "lint:fix": "eslint --fix",
     "test": "jest",
-    "test:changedSince": "jest --changedSince origin/master",
+    "test:changedSince": "jest --changedSince origin/main",
     "prepare": "husky",
     "rebuild": "pnpm clean && pnpm build"
   },
