@@ -27,12 +27,12 @@ jobs:
 
       # Étape 4: Construire le projet
       - name: Build project
-        run: npm build
+        run: npm run build
 
       # Étape 5: Exécuter les tests
       - name: Run tests
-        run: npm test
+        run: npm run test
 
       # Étape 6: (Facultatif) Nettoyer les artefacts
       - name: Clean up
-        run: npm clean
+        run: npm run clean
