@@ -23,7 +23,7 @@ jobs:
 
       # Étape 3: Installer les dépendances
       - name: Install dependencies
-        run: npm install  # Utilisez `npm install` si vous ne souhaitez pas utiliser pnpm
+        run: npm install --legacy-peer-deps  # Utilisez `npm install` si vous ne souhaitez pas utiliser pnpm
 
       # Étape 4: Construire le projet
       - name: Build project
