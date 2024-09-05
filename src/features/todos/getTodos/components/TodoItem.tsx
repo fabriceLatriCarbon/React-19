@@ -1,8 +1,8 @@
 'use client';
 
-import { Todo } from '../models/todo'
+import { useTodoContext } from 'src/core/todos/hooks/useTodoContext';
+import { Todo } from '../../../../core/todos/models/todo'
 import clsx from 'clsx';
-import { useTodoContext } from '../hooks/useTodoContext';
 
 type TodoItemProps = Todo & { isPending: boolean };
 

@@ -1,7 +1,8 @@
 import { render } from '@testing-library/react';
 import App from "./App"
-import { getAllTodos } from './features/todos/services/todo-service';
-import { Todo } from './features/todos/models/todo';
+import { Todo } from 'src/core/todos/models/todo';
+import { getAllTodos } from 'src/core/todos/services/todo-service';
+
 
 const mockTodos: Todo[] = [
   {
@@ -18,7 +19,7 @@ const mockTodos: Todo[] = [
   }
 ]
 
-jest.mock('./features/todos/services/todo-service');
+jest.mock('../core/todos/services/todo-service');
 
 const mockGetAllTodos = jest.mocked(getAllTodos);
 

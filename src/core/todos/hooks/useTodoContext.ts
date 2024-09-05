@@ -1,5 +1,5 @@
 import { use } from "react";
-import { TodosContext } from "../contexts/todoContext";
+import { TodosContext } from "../../../core/todos/contexts/todoContext";
 
 
 export function useTodoContext() {

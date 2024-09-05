@@ -1,9 +1,9 @@
-import { useTodoContext } from '../hooks/useTodoContext';
-import TodoButton from './TodoButton';
-import TodoInput from './TodoInput';
-import TodoList from './TodoList';
+import { useTodoContext } from 'src/core/todos/hooks/useTodoContext';
+import TodoButton from '../ui/buttons/TodoButton';
+import TodoInput from '../features/todos/addTodo/components/TodoInput';
+import TodoList from '../features/todos/getTodos/components/TodoList';
 
-export default function TodoApp() {
+export default function TodoPage() {
 
   const { addNewTodo, errorMessage, isPending } = useTodoContext();
 
