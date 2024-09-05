@@ -1,4 +1,4 @@
-import { useTodoContext } from 'src/core/todos/hooks/useTodoContext';
+import { useTodoContext } from '../core/todos/hooks/useTodoContext';
 import TodoButton from '../ui/buttons/TodoButton';
 import TodoInput from '../features/todos/addTodo/components/TodoInput';
 import TodoList from '../features/todos/getTodos/components/TodoList';

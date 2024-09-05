@@ -1,4 +1,4 @@
-import { Todo } from "src/core/todos/models/todo";
+import { Todo } from "../../../../../../core/todos/models/todo";
 import { BaseResponse } from "../../../../../../core/todos/models/DTOs/responses/base-response";
 
 

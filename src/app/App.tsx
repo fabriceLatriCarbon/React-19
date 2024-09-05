@@ -1,6 +1,6 @@
-import TodoProvider from 'src/core/todos/contexts/todoContext';
-import { getAllTodos } from 'src/core/todos/services/todo-service';
-import TodoPage from 'src/pages/TodoPage';
+import TodoProvider from '../core/todos/contexts/todoContext';
+import { getAllTodos } from '../core/todos/services/todo-service';
+import TodoPage from '../pages/TodoPage';
 import './App.css'
 
 

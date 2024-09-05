@@ -1,6 +1,6 @@
 'use client';
 
-import { useTodoContext } from '../hooks/useTodoContext';
+import { useTodoContext } from '../../../../core/todos/hooks/useTodoContext';
 import TodoItem from './TodoItem';
 
 export default function TodoList() {

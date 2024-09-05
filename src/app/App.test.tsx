@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import App from "./App"
-import { Todo } from 'src/core/todos/models/todo';
-import { getAllTodos } from 'src/core/todos/services/todo-service';
+import { Todo } from '../core/todos/models/todo';
+import { getAllTodos } from '../core/todos/services/todo-service';
 
 
 const mockTodos: Todo[] = [
